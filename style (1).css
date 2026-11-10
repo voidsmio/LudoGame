@@ -1,0 +1,40 @@
+:root{--bg:#0f2a2e;--panel:#173a3f;--ink:#f3f1e8;--mut:#9cbcbc;--line:#2b5a5f;--c0:#e5484d;--c1:#2fa56b;--c2:#f2b52c;--c3:#3d7bf7}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#17474d,var(--bg) 60%);color:var(--ink);font-family:"Avenir Next","Nunito","Trebuchet MS",system-ui,sans-serif;display:flex;justify-content:center;padding:18px 14px}
+main{width:100%;max-width:520px}
+h1{font-size:2.4rem;margin:8px 0 4px;letter-spacing:-.5px}
+p.sub{color:var(--mut);margin:0 0 20px;line-height:1.5}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+label{display:block;font-size:.85rem;color:var(--mut);margin-bottom:6px}
+input{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#0c2326;color:var(--ink);font-size:1.05rem;font-family:inherit}
+input:focus,button:focus-visible{outline:3px solid #7fd6c8;outline-offset:2px}
+#code{text-transform:uppercase;letter-spacing:.3em;text-align:center;font-weight:800}
+button{font-family:inherit;font-size:1.05rem;font-weight:700;border:0;border-radius:12px;padding:13px 18px;cursor:pointer;background:#f2b52c;color:#2a1d00}
+button.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;margin-top:12px}.row>*{flex:1}
+.or{text-align:center;color:var(--mut);margin:14px 0 2px;font-size:.9rem}
+.roomcode{font-size:2.6rem;font-weight:800;letter-spacing:.25em;text-align:center;margin:4px 0 12px}
+.plist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.plist li,.chip{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#0c2326;border:2px solid transparent}
+.dot{width:16px;height:16px;border-radius:50%;flex:none}
+.chip.on{border-color:var(--ink)}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;font-size:.9rem}
+.chip small{margin-left:auto;color:var(--mut)}
+.hidden{display:none!important}
+#board{position:relative;width:100%;aspect-ratio:1;background:#fbfaf4;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px #0006}
+#grid{position:absolute;inset:0;display:grid;grid-template:repeat(15,1fr)/repeat(15,1fr)}
+#grid div{border:.5px solid #0002;display:flex;align-items:center;justify-content:center;font-size:clamp(7px,2.2vw,12px);color:#0007}
+#grid .e{border:0}
+.base{position:absolute;width:40%;height:40%;border-radius:10px}
+.base i{position:absolute;inset:16.6%;background:#fbfaf4;border-radius:10px}
+#ctr{position:absolute;left:40%;top:40%;width:20%;height:20%;background:conic-gradient(from 45deg,var(--c3) 0 25%,var(--c0) 0 50%,var(--c1) 0 75%,var(--c2) 0)}
+.piece{position:absolute;width:5.2%;height:5.2%;border-radius:50%;transform:translate(-50%,-50%);border:2px solid #fff;box-shadow:0 2px 4px #0008;transition:left .3s,top .3s;z-index:2;padding:0}
+.piece.go{cursor:pointer;animation:pulse .8s infinite alternate;z-index:3}
+@keyframes pulse{to{transform:translate(-50%,-50%) scale(1.35)}}
+@media(prefers-reduced-motion:reduce){.piece.go{animation:none;outline:3px solid #fff}}
+.dock{display:flex;align-items:center;gap:14px;margin-top:14px}
+#die{width:84px;height:84px;font-size:3.2rem;background:#fbfaf4;color:#222;border-radius:18px;padding:0;flex:none;transition:transform .2s}
+#die.roll{transform:rotate(360deg)}
+#msg{font-weight:700;line-height:1.35}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#000c;color:#fff;padding:11px 18px;border-radius:12px;z-index:9;max-width:90%;text-align:center}
